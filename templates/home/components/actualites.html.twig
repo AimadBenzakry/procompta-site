@@ -1,0 +1,91 @@
+{% set img_path = asset('build/images/news.png') %}
+{% set articles = [{
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+}, {
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+}, {
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+}, {
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+}, {
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+},
+ {
+  image : img_path,
+  title: 'Lorem ipsum dolor sit amet',
+  excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec nunc.',
+  link: '#'
+}]%}
+<section class="actualites-section">
+  <button id="show-modal-btn">Voir Tous({{ articles|length }})  <i class="fa-solid fa-arrow-right"></i></button>
+  <h2 class="news-title">Actualités</h2>
+  <div class="news-items">
+    {% for article in articles %}
+      {% if loop.index <= 2 %}
+        <article class="news-item">
+          <img src="{{ article.image }}" alt="{{ article.title }}" class="news-item-image">
+          <div class="news-item-content">
+            <h3 class="news-item-title">{{ article.title }}</h3>
+            <p class="news-item-excerpt">{{ article.excerpt }}</p>
+            <div class="social-medias">
+              <span>Partagez sur </span>
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-linkedin-in"></i>
+            <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <a href="{{ article.link }}" class="news-item-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+        </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+   <div id="news-modal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+       <h2 class="news-title">Toutes nos actualités</h2>
+      <div class="news-items-modal">
+        {% for article in articles %}
+          <article class="news-item">
+            <img src="{{ article.image }}" alt="{{ article.title }}" class="news-item-image">
+            <div class="news-item-content">
+              <h3 class="news-item-title">{{ article.title }}</h3>
+              <p class="news-item-excerpt">{{ article.excerpt }}</p>
+              <div class="social-medias">
+                <span>Partagez sur </span>
+                <i class="fa-brands fa-facebook-f"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <div>
+                <a href="{{ article.link }}" class="news-item-link">En savoir plus <i class="fa-solid fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </article>
+          {% if loop.index is divisible by(2) %}
+            <div class="clearfix"></div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

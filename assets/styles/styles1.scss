@@ -1,0 +1,72 @@
+.image-carousel {
+    height: 420px;
+    width: 600px;
+    overflow: hidden;
+    position: relative;
+    .carousel-inner {
+        display: flex;
+        position: absolute;
+        // left: 0;
+        transition: left 0.25s ease-out;
+    }
+    .next::after, .prev::after {
+        content: '>' ;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: sans-serif;
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 3em;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 3em;
+        background-color: white;
+        padding: 0 0.2em;
+        box-sizing: border-box;
+        cursor: pointer;
+        opacity: 0.25;
+        transition: opacity 0.1s linear ;
+        border-radius: 6%;
+        
+    }
+    .prev::after {
+        left: 0;
+        content: '<';
+    }
+    .next:hover::after, .prev:hover::after {
+        opacity: 1;
+    }
+
+    .bubbles {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-bottom: 5px;
+        .bubble {
+            width: 10px;
+            height: 10px;
+            background: white;
+            margin: 2.5px;
+            border-radius: 50%;
+            display: inline-block;
+            opacity: 0.25;
+            cursor: pointer;
+            transition: opacity 0.1s linear;
+
+            &:hover {
+                opacity: 0.65;
+            }
+
+            &.active {
+                opacity: 1;
+                width: 20px;
+                border-radius: 35%;
+                
+            }
+        }
+    }
+}

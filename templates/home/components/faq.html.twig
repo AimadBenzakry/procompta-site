@@ -1,0 +1,32 @@
+{% set faqs = [
+    {
+        'question': "Qu'est-ce qu'une immobilisation ?",
+        'answer': "La réponse à cette question se trouve ici..."
+    },
+    {
+        'question': "Quels sont les frais de repas que je peux me faire rembourser ?",
+        'answer': "La réponse à cette question se trouve ici..."
+    },
+    {
+        'question': "Les cadeaux pour les clients sont-ils déductibles du résultat fiscal de l'entreprise ?",
+        'answer': "La réponse à cette question se trouve ici..."
+    },
+    {
+        'question': "Combien de temps dois-je conserver mes documents ?",
+        'answer': "La réponse à cette question se trouve ici..."
+    }
+] %}
+<section class="faq-section">
+    <h2 class="faq-title"><i class="fa-solid fa-circle-exclamation"></i> Questions fréquentes</h2>
+    {% for faq in faqs %}
+        <div class="faq-item">
+            <button class="faq-question">
+                {{ faq.question }}
+                <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>{{ faq.answer }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</section>

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% set images = [
+    'p1.jpg','p2.jpg','p3.jpg','p4.jpg','p5.jpg','p6.jpg'
+    ] %}
+
+{% block title %}Image Gallery{% endblock %}
+
+{% block body %}
+
+<h1>Image Gallery</h1>
+
+<div class="image-carousel">
+    <div class="carousel-inner">
+     {% for image in images %}
+            <img src="{{ asset('build/images/' ~ image) }}" alt="Image {{ loop.index }}" width="600" height="420">
+        {% endfor %}
+    </div>
+    <div class="bubbles"></div>
+    <div class="prev"></div>
+    <div class="next"></div>
+</div>
+{% endblock %}
